@@ -22,8 +22,8 @@
                 <h3 class="log-title">SE CONNECTER</h3>
                 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
                   <div class="field form-group">
-                    <%= f.label :identifiant %><br />
-                    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email ou Username", class: "form-control" %>
+                    <%= f.label :login %><br />
+                    <%= f.text_field :login, autofocus: true, autocomplete: "email", placeholder: "Email ou Username", class: "form-control" %>
                   </div>
 
                   <div class="field form-group">
