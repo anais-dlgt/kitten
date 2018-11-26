@@ -29,3 +29,7 @@
 //= require js/preloader
 
 //= require js/hide-nav
+//= require js/preloader
+
+//= require js/validator.min
+//= require js/nouislider.min
