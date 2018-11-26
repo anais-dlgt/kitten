@@ -45,48 +45,56 @@
                   </div>
                 <% end %>
 
-                <%= render "devise/shared/links" %>
+                <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+                  <%= link_to "Mot de passe oublié ?", new_password_path(resource_name) %><br />
+                <% end -%>
                 <!-- log-line -->
 
             </div>
         </div><!-- / col-sm-6 -->
         <!-- / login form 1 -->
 
+
+
         <!-- register form 1 -->
         <div class="col-sm-6">
             <div id="register-form">
-                <h3 class="log-title">REGISTER</h3>
-                <div class="form-group">
-                    <input type="text" class="form-control" id="register-email" placeholder="EMAIL" required data-error="*Please fill out this field">
-                    <div class="help-block with-errors"></div>
-                </div>
-                <div class="form-group">
-                    <input type="email" class="form-control" id="register-username" placeholder="USERNAME" required>
-                    <div class="help-block with-errors"></div>
-                </div>
-                <div class="form-group">
-                    <input type="text" class="form-control" id="register-password" placeholder="PASSWORD" required data-error="*Please fill out this field">
-                    <div class="help-block with-errors"></div>
-                </div>
-                <div class="form-group">
-                    <input type="email" class="form-control" id="register-cpassword" placeholder="CONFIRM PASSWORD" required>
-                    <div class="help-block with-errors"></div>
-                </div>
-                <!-- log-line -->
-                <div class="log-line reg-form-1 no-margin">
-                    <div class="pull-left">
-                        <div class="checkbox checkbox-primary space-bottom">
-                            <label class="hide"><input type="checkbox"></label>
-                            <input id="checkbox2" type="checkbox">
-                            <label for="checkbox2"><span><a href="#x">Terms & Conditions</a></span></label>
-                        </div>
-                    </div>
-                    <div class="pull-right">
-                        <button type="submit" id="reg-submit" class="btn btn-md btn-primary-filled btn-log btn-rounded">Register</button>
-                        <div id="register-msgSubmit" class="h3 text-center hidden"></div>
-                        <div class="clearfix"></div>
-                    </div>
-                </div><!-- / log-line -->
+                <h3 class="log-title">CRÉER UN COMPTE</h3>
+                <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+                  <%= devise_error_messages! %>
+
+
+                  <div class="field form-group">
+                    <%= f.label :login, 'Pseudo' %><br />
+                    <%= f.text_field :login, autofocus: true, class:"form-control", placeholder: "jackydu59"%>
+                  </div>
+
+
+                  <div class="field form-group">
+                    <%= f.label :email %><br />
+                    <%= f.email_field :email, class:"form-control", placeholder: "test@example.com" %>
+                  </div>
+
+
+                  <div class="field form-group">
+                    <%= f.label :password, 'Mot de passe' %>
+                    <% if @minimum_password_length %>
+                    <em>(<%= @minimum_password_length %> characters minimum)</em>
+                    <% end %><br />
+                    <%= f.password_field :password, autocomplete: "new-password", class:"form-control", placeholder: "mot de passe" %>
+                  </div>
+
+                  <div class="field form-group">
+                    <%= f.label :password_confirmation, 'Confirmation du mot de passe' %><br />
+                    <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"form-control", placeholder: "confirmation" %>
+                  </div>
+
+                  <div class="actions pull-right">
+                    <%= f.submit "Sign up", class: "btn btn-md btn-primary-filled btn-log btn-rounded" %>
+                  </div>
+                <% end %>
+                <div id="register-msgSubmit" class="h3 text-center hidden"></div>
+                <div class="clearfix"></div>
             </div>
         </div><!-- / col-sm-6 -->
         <!-- / register form 1 -->
