@@ -14,3 +14,18 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+
+//= require js/jquery.min
+//= require js/bootstrap.min
+
+//= require js/jquery.easing.min
+//= require js/scrolling-nav-sticky
+
+//= require js/custom
+//= require js/jquery.shuffle.min
+
+//= require js/owl.carousel.min
+
+//= require js/preloader
+
+//= require js/hide-nav
