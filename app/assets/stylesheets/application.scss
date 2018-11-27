@@ -23,6 +23,9 @@
  *= require font-awesome
  */
 
+ @import "font-awesome-sprockets";
+ @import "font-awesome";
+
 #header-banner.demo-1 {
   background: url("chatons.jpg") no-repeat !important;
 }
