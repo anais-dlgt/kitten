@@ -31,22 +31,17 @@
         </thead>
         <tbody>
             <tr class="cart-item">
-
                 <% @cart.line_items.each do  |item| %>
-                  <li>
-                    <%= item.item.title %> (x <%=item.quantity %>)
-                        <span class="badge bagde-info">
-                          <%=number_to_currency(item.total, unit: "€", separator: ",", format: "%n %u") %>
-                        </span>
-                  </li>
-                <% end %>
-
-                <td class="image"><a href="#"><img src="<%= item.image_url %>" alt=""></a></td>
-                <td><a href="single-product.html">WOMEN'S JEANS</a></td>
-                <td><%= item.price %></td>
-                <td class="qty"><input type="number" step="1" min="0" name="cart" value="1" title="Qty" class="input-text qty text" size="4"></td>
-                <td>$69</td>
+                <td class="image"><a href="#"><img src="<%= item.item.image_url %>" alt=""></a></td>
+                <td><%= link_to item_path(item.item.id) do %>
+                  <%= item.item.title %>
+                  <% end %>
+                </td>
+                <td><%= item.item.price %></td>
+                <td class="qty"><input type="number" step="1" min="0" name="cart" value="<%=item.quantity %>" title="Qty" class="input-text qty text" size="4"></td>
+                <td><%=number_to_currency(item.total, unit: "€", separator: ",", format: "%n %u") %></td>
                 <td class="remove"><a href="#x" class="btn btn-danger-filled x-remove">×</a></td>
+
             </tr>
         </tbody>
     </table>
@@ -54,27 +49,24 @@
 
     <div class="row cart-footer">
         <div class="coupon col-sm-6">
-            <div class="input-group">
-                <input type="text" class="form-control rounded" id="coupon-code" placeholder="COUPON CODE">
-                <span class="input-group-btn">
-                <button class="btn btn-primary-filled btn-rounded" type="button"><i class="lnr lnr-tag"></i> <span>Apply Coupon</span></button>
-                </span>
-            </div>
+
         </div><!-- / input-group -->
         <div class="update-cart col-sm-6">
             <button class="btn btn-default-filled btn-rounded" type="button"><i class="lnr lnr-sync"></i> <span>Update Cart</span></button>
         </div><!-- / update-cart -->
 
         <div class="col-sm-6 cart-total">
-            <h4>CART TOTAL</h4>
-            <p>Subtotal: <span>$147</span></p>
-            <p>Shipping: <span>Free</span></p>
-            <p>Total: <span>$147</span></p>
+            <h4>TOTAL DU PANIER</h4>
+            <p>Sous-total : <span><%=number_to_currency(item.total, unit: "€", separator: ",", format: "%n %u") %></span></p>
+            <p>Frais de livraison : <span>Gratuit</span></p>
+            <p>Total: <span><%=number_to_currency(item.total, unit: "€", separator: ",", format: "%n %u") %></span></p>
         </div><!-- / cart-total -->
-
+        <% end %>
         <div class="col-sm-6 cart-checkout">
-            <a href="shop-right.html" class="btn btn-default-filled btn-rounded"><i class="lnr lnr-cart"></i> <span>Continue Shopping</span></a>
-            <a href="checkout.html" class="btn btn-primary-filled btn-rounded"><i class="lnr lnr-exit"></i> <span>Proceed to Checkout</span></a>
+            <%= link_to items_path, class: "btn btn-default-filled btn-rounded" do %>
+            <i class="fa fa-shopping-cart"></i><span>Continuer mon shopping</span>
+            <% end %>
+            <a href="checkout.html" class="btn btn-primary-filled btn-rounded"><i class="fa fa-refresh"></i> <span>Finaliser ma commande</span></a>
         </div><!-- / cart-checkout -->
 
 
@@ -84,20 +76,3 @@
 <!-- / shopping-cart -->
 
 <!-- / content -->
-
-<h2>Panier</h2>
-
-
-
-  <p class="font-weight-bold">Total: <span class="badge bagde-info">
-    <%=number_to_currency(@cart.total, unit: "€", separator: ",", format: "%n %u") %>
-  </span></p>
-
-<div class="row">
-  <div class="column">
-    <%= button_to "Vider le panier", @cart, method: :delete, data: { confirm: "ëtes-vous sûr?"}, class: "btn btn-primary-filled btn-rounded"%>
-  </div>
-  <div class="column">
-    <%= button_to 'Retour aux petits chats', items_path, class: "btn btn-primary-filled btn-rounded" %>
-  </div>
-</div>
