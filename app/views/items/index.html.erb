@@ -1,0 +1,75 @@
+<header>
+    <!-- header-banner -->
+    <div id="header-banner">
+        <div class="banner-content single-page text-center">
+            <div class="banner-border">
+                <div class="banner-info">
+                    <h1>Boutique de photos</h1>
+                    <p>Vous allez adorer nos boules de poils.</p>
+                </div><!-- / banner-info -->
+            </div><!-- / banner-border -->
+        </div><!-- / banner-content -->
+    </div>
+    <!-- / header-banner -->
+</header>
+<!-- / header -->
+
+<!-- content -->
+
+<!-- shop section -->
+<section id="shop" class="space-top-30">
+    <div class="container">
+        <!-- <p class="shop-results space-left">Showing <strong>1-12</strong> of <strong>36</strong> items.
+            <span class="pull-right space-right">
+                <select class="selectpicker">
+                    <optgroup label="Sort By:">
+                        <option>Default</option>
+                        <option>Popularity</option>
+                        <option>Newness</option>
+                        <option>Rating</option>
+                        <option>Price Low to High</option>
+                        <option>Price High to Low</option>
+                    </optgroup>
+                </select>
+            </span>
+        </p> -->
+        <ul class="row shop list-unstyled" id="grid">
+          <% Item.all.each do |i| %>
+            <!-- product -->
+            <li class="col-xs-6 col-md-4 product m-product" data-groups='["mens"]'>
+                <div class="img-bg-color primary">
+                    <h5 class="product-price"><%= i.price %>€</h5>
+                    <a href="single-product.html" class="product-link"></a>
+                    <!-- / product-link -->
+                    <img src="<%=i.image_url%>" alt="" height="250px"/>
+                    <!-- / product-image -->
+
+                    <!-- product-hover-tools -->
+                    <div class="product-hover-tools">
+                      <%= link_to item_path(i.id), class: "view-btn" do %>
+                        <i class="lnr lnr-eye"></i>
+                        <% end %>
+                        <a href="shopping-cart.html" class="cart-btn" data-toggle="tooltip" title="Add to Cart">
+                            <i class="lnr lnr-cart"></i>
+                        </a>
+                    </div><!-- / product-hover-tools -->
+
+                    <!-- product-details -->
+                    <div class="product-details">
+                        <h5 class="product-title"><%= i.title %></h5>
+                        <p class="product-category"><%= i.description %></p>
+                    </div><!-- / product-details -->
+                </div><!-- / img-bg-color -->
+            </li>
+            <!-- / product -->
+            <% end %>
+            <!-- sizer -->
+            <li class="col-xs-6 col-md-4 shuffle_sizer"></li>
+            <!-- / sizer -->
+
+        </ul> <!-- / products -->
+
+    </div><!-- / container -->
+
+</section>
+<!-- / shop section -->

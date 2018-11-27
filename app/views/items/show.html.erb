@@ -1,0 +1,113 @@
+<header>
+<!-- header-banner -->
+<div id="header-banner">
+    <div class="banner-content single-page text-center">
+        <div class="banner-border">
+            <div class="banner-info">
+                <h1>Photo de <%= @item.title %></h1>
+            </div><!-- / banner-info -->
+        </div><!-- / banner-border -->
+    </div><!-- / banner-content -->
+</div>
+<!-- / header-banner -->
+</header>
+<!-- / header -->
+
+<!-- content -->
+
+<!-- shop single-product -->
+<section id="shop">
+<div class="container space-top-30">
+    <div class="row">
+        <!-- product content area -->
+        <div class="col-sm-6 col-md-7 product-content-area">
+            <div class="product-content-area">
+                <div id="product-slider" class="carousel slide" data-ride="carousel">
+                    <!-- wrapper for slides -->
+                    <div class="carousel-inner" role="listbox">
+                        <div class="item active">
+                            <%= image_tag(@item.image_url)  %>
+                        </div>
+                    </div>
+                    <!-- / wrapper for slides -->
+                </div><!-- / product-slider -->
+
+                <ul class="nav nav-tabs" role="tablist">
+                    <li class="active"><a href="#description" role="tab" data-toggle="tab" aria-expanded="true">DESCRIPTION</a></li>
+                    <li class=""><a href="#info" role="tab" data-toggle="tab" aria-expanded="false">INFO</a></li>
+                </ul>
+                <!-- / nav-tabs -->
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane animated fadeIn active" id="description">
+                        <p><%= @item.description%></p>
+
+                    </div>
+                    <!-- / description-tab -->
+
+                    <div role="tabpanel" class="tab-pane animated fadeIn" id="info">
+                        <div class="row">
+                            <div class="col-sm-6">
+                            </div>
+
+                            <div class="col-sm-6">
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <th>Poids:</th>
+                                            <td>0.5 Kg</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Made In:</th>
+                                            <td>France</td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div><!-- / row -->
+                    </div>
+                    <!-- / info-tab -->
+
+
+                </div>
+                <!-- / tab-content -->
+            </div><!-- / product-content-area -->
+
+        </div>
+        <!-- / product-content-area -->
+
+        <!-- product sidebar area -->
+        <div class="col-sm-6 col-md-5 product-sidebar">
+            <div class="product-sidebar-details">
+
+                <p>Regardez cette frimousse , elle serait parfaite chez vous.</p>
+                <div class="product-info">
+                    <div class="info">
+                      <p><i class="lnr lnr-tag"></i><span>Prix : <%=@item.price %>€</span></p>
+                    </div>
+
+                </div><!-- / product-info -->
+
+                <div class="buy-product">
+                    <div class="options">
+                        <input type="number" step="1" min="0" name="cart" value="1" title="Qty" class="input-text qty text" size="4">
+
+                    </div>
+                    <!-- / options -->
+
+                    <div class="space-25">&nbsp;</div>
+
+                    <%= button_to line_items_path(item_id: @item.id), class: "btn btn-primary-filled btn-rounded" do %>
+                    <i class="lnr lnr-cart"></i><span>Ajouter au Panier</span>
+                    <% end %>
+                </div>
+
+            </div><!-- product-details -->
+
+        </div><!-- / col-sm-4 col-md-3 -->
+        <!-- / product sidebar area -->
+
+    </div><!-- / row -->
+</div><!-- / container -->
+</section>
+<!-- / shop single-product -->

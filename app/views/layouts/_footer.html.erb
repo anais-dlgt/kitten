@@ -1,0 +1,107 @@
+<!-- brands carousel -->
+<section id="brands" class="dark primary-background">
+    <h2 class="hidden">&nbsp;</h2>
+    <div class="container">
+        <div id="brands-carousel" class="owl-carousel">
+            <div class="item"><%= image_tag "brand1.jpg" %></div>
+            <div class="item"><%= image_tag "brand2.jpg" %></div>
+            <div class="item"><%= image_tag "brand3.jpg" %></div>
+            <div class="item"><%= image_tag "brand4.jpg" %></div>
+            <div class="item"><%= image_tag "brand5.jpg" %></div>
+            <div class="item"><%= image_tag "brand6.jpg" %></div>
+            <div class="item"><%= image_tag "brand7.jpg" %></div>
+            <div class="item"><%= image_tag "brand8.jpg" %></div>
+            <div class="item"><%= image_tag "brand9.jpg" %></div>
+            <div class="item"><%= image_tag "brand10.jpg" %></div>
+        </div>
+    </div><!-- / container -->
+</section>
+
+<!-- scroll to top -->
+<a href="#top" class="scroll-to-top page-scroll is-hidden" data-nav-status="toggle"><i class="fa fa-angle-up"></i></a>
+<!-- / scroll to top -->
+
+<!-- footer -->
+<footer class="light-footer">
+<div class="widget-area">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-4 widget">
+                <div class="about-widget">
+                    <div class="widget-title-image">
+                        <%= image_tag "logo.png" %>
+                    </div>
+                    <p>Il suffit de croiser son regard avec celui d’un chat pour mesurer la profondeur des énigmes que chaque paillette de ses yeux pose aux braves humains que nous sommes. - Jacques Laurent</p>
+                </div><!-- / about-widget -->
+            </div><!-- / widget -->
+
+
+
+            <div class="col-md-2"></div>
+            <!-- / third widget -->
+
+            <div class="col-md-4 widget">
+                <div class="widget-title">
+                    <h4>CONTACT</h4>
+                </div>
+                <div class="contact-widget">
+                    <div class="info">
+                        <p><i class="lnr lnr-map-marker"></i><span>Lille</span></p>
+                    </div>
+                    <div class="info">
+                        <a href="tel:+0123456789"><i class="lnr lnr-phone-handset"></i><span>+33 606060606</span></a>
+                    </div>
+                    <div class="info">
+                        <a href="mailto:hello@yoursite.com"><i class="lnr lnr-envelope"></i><span>thehackingproject.lille@gmail.com</span></a>
+                    </div>
+                    <div class="info">
+                        <i class="lnr lnr-thumbs-up"></i>
+                        <span class="social text-left">
+                            <a class="no-margin" href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-google-plus"></i></a>
+                            <a href="#"><i class="fa fa-linkedin"></i></a>
+                            <a href="#"><i class="fa fa-pinterest"></i></a>
+                        </span>
+                    </div>
+                </div><!-- / contact-widget -->
+            </div><!-- / widget -->
+            <!-- / fourth widget -->
+
+        </div><!-- / row -->
+    </div><!-- / container -->
+</div><!-- / widget-area -->
+<div class="footer-info">
+    <div class="container">
+            <div class="pull-left copyright">
+                <p><strong>© THP LILLE #WELSH</strong></p>
+            </div>
+            <span class="pull-right">
+              <%= image_tag "visa.png" %>
+              <%= image_tag "mastercard.png" %>
+              <%= image_tag "discover.png" %>
+              <%= image_tag "paypal.png" %>
+            </span>
+    </div><!-- / container -->
+</div><!-- / footer-info -->
+</footer>
+<!-- / footer -->
+
+<script>
+    $(document).ready(function() {
+      $("#brands-carousel").owlCarousel({
+        autoPlay: 5000, //set autoPlay to 5 seconds.
+        items : 5,
+        itemsDesktop : [1199,3],
+        itemsDesktopSmall : [979,3]
+      });
+
+    });
+</script>
+
+<script>
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip();
+});
+</script>

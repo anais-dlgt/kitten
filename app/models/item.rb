@@ -1,5 +1,6 @@
 class Item < ApplicationRecord
   has_many :line_items, dependent: :nullify
+  
   validates :title, presence: true
   validates :description, presence: true
   validates :image_url, presence: true
