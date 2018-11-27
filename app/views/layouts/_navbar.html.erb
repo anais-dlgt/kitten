@@ -14,8 +14,29 @@
             <%end%>
         </div><!-- / navbar-header -->
         <div class="secondary-nav">
-            <%= link_to "", new_user_session_path, class:"my-account space-right fa fa-user" %>
+
+          <a href="#" class="dropdown-toggle my-account space-right fa fa-user" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"></a>
+          <ul class="dropdown-menu animated zoomIn fast">
+
+            <% if user_signed_in? %>
+              <li><%= link_to edit_user_registration_path(@user) do %>
+                <span>Voir/Editer mon profil</span>
+                <% end %>
+              </li>
+              <li><%= link_to destroy_user_session_path, method: :delete do %>
+                <span>Se déconnecter</span>
+                <% end %>
+              </li>
+            <% else %>
+              <li><%= link_to new_user_session_path do %>
+                <span>Se connecter</span>
+                <% end %>
+            <% end %>
+          </ul>
+
+            <%# <%= link_to "", new_user_session_path, class:"my-account space-right fa fa-user" %>
             <a href="shopping-cart.html" class="shopping-cart"><i class="fa fa-shopping-cart"></i> <span class="cart-badge">2</span></a>
+
         </div>
         <div class="navbar-collapse collapse text-center">
             <ul class="nav navbar-nav">
