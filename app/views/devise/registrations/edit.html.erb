@@ -1,43 +1,70 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<!-- my-account -->
+<section id="my-account">
+    <div class="container">
+        <div class="row">
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= devise_error_messages! %>
+            <div class="col-sm-2 account-sidebar">
+                <%= image_tag "account-img.jpg" %>
+                <p><a href="#personal-info" class="page-scroll">INFORMATIONS PERSONNELLES</a></p>
+                <p><a href="#my-orders" class="page-scroll">MES COMMANDES</a></p>
+            </div><!-- / account-sidebar -->
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+            <div class="col-sm-10 account-info">
+                <div id="personal-info" class="account-info-content">
+                    <h4>INFORMATIONS PERSONNELLES</h4>
+                    <div class="row">
+                      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+                        <%= devise_error_messages! %>
+                        <div class="col-xs-6 col-sm-4 col-md-2">
+                            <%= image_tag "account-img.jpg" %>
+                            <a href="#x" class="btn btn-primary btn-xs btn-rounded no-margin">Change Image</a>
+                        </div>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
+                        <div class="col-xs-6 col-sm-8 col-md-10">
+                          <div class="field form-group">
+                            <p><%= f.label :email, 'Email : ' %>
+                            <span><%= f.email_field :email, autocomplete: "email" %></span></p>
+                          </div>
+                          <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+                            <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+                          <% end %>
+                          <div class="field form-group">
+                            <p><%= f.label :password, 'Mot de passe : ' %> <i>(laissez blanc si vous ne souhaitez pas le modifier)</i><br />
+                            <span><%= f.password_field :password, autocomplete: "new-password" %></span></p>
+                          </div>
+                          <div class="field form-group">
+                            <p><%= f.label :password_confirmation, 'Confirmation du mot de passe' %><br />
+                            <span><%= f.password_field :password_confirmation, autocomplete: "new-password" %></span></p>
+                          </div>
+                          <div class="field form-group">
+                            <p><%= f.label :current_password, 'Mot de passe actuel' %> <br/><i>(nous avons besoin de votre mot de passe actuel pour confirmer les changements)</i><br />
+                            <span><%= f.password_field :current_password, autocomplete: "current-password" %></span></p>
+                          </div><br/>
+                          <div class="actions">
+                            <%= f.submit "Mettre à jour", class: "btn btn-primary btn-xs btn-rounded no-margin" %>
+                          </div>
+                        <% end %>
+                        </div>
+                      </div><!-- / row -->
+                      <br/><br/>
+                      <div class="row">
+                        <div class="col-xs-6 col-sm-8 col-md-10">
+                        <h5>SUPPRIMER MON COMPTE</h5>
+                        <hr>
+                        <p>Vous êtes insatisfait de nos services ? <%= button_to "Supprimer mon compte", registration_path(resource_name), data: { confirm: "Êtes-vous sûr(e) ?" }, method: :delete, class: "btn btn-primary btn-xs btn-rounded no-margin" %></p>
+                        </div>
+                      </div>
+                </div><!-- / personal-info -->
 
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
-    <% end %>
-  </div>
+                <div id="my-orders" class="account-info-content">
+                    <h4>MES COMMANDES</h4>
+                    <p><a href="#x">Order #38726</a> <span>- Paid & Shipped</span> - Tracking No: <span>#TRCK182736</span></p>
+                    <p><a href="#x">Order #34823</a> <span>- Completed on 25.10.2016</span></p>
+                    <p><a href="#x">Order #23463</a> <span>- Completed on 16.08.2016</span></p>
+                </div><!-- / my-orders -->
+              </div><!-- / account-info -->
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
-<% end %>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
+          </div><!-- / row -->
+      </div><!-- / container -->
+  </section>
+  <!-- / my-account -->

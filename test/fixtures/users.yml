@@ -5,13 +5,11 @@
 # below each fixture, per the syntax in the comments below
 #
 one:
-  username: Alice
   email: alice@exemple.com
 
 # column: value
 #
 two:
-  username: Bob
   email: bob@exemple.com
 
 # column: value
