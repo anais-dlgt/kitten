@@ -22,8 +22,8 @@
                 <h3 class="log-title">SE CONNECTER</h3>
                 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
                   <div class="field form-group">
-                    <%= f.label :login %><br />
-                    <%= f.text_field :login, autofocus: true, autocomplete: "email", placeholder: "Email ou Username", class: "form-control" %>
+                    <%= f.label :email%><br />
+                    <%= f.text_field :email, autofocus: true, autocomplete: "email", placeholder: "Email ou Username", class: "form-control" %>
                   </div>
 
                   <div class="field form-group">
@@ -62,12 +62,6 @@
                 <h3 class="log-title">CRÉER UN COMPTE</h3>
                 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
                   <%= devise_error_messages! %>
-
-
-                  <div class="field form-group">
-                    <%= f.label :login, 'Pseudo' %><br />
-                    <%= f.text_field :login, autofocus: true, class:"form-control", placeholder: "jackydu59"%>
-                  </div>
 
 
                   <div class="field form-group">
