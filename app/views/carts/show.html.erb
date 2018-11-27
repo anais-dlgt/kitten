@@ -17,6 +17,9 @@
 
 <div class="row">
   <div class="column">
+      <%= button_to "Acheter", new_order_path, method: :get, class: "btn btn-primary-filled btn-rounded"%>
+  </div>
+  <div class="column">
     <%= button_to "Vider le panier", @cart, method: :delete, data: { confirm: "ëtes-vous sûr?"}, class: "btn btn-primary-filled btn-rounded"%>
   </div>
   <div class="column">
