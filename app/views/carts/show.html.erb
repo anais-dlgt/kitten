@@ -64,10 +64,13 @@
         </div><!-- / cart-total -->
         <% end %>
         <div class="col-sm-6 cart-checkout">
+            <%= button_to "Acheter", new_order_path, method: :get, class: "btn btn-default-filled btn-rounded" %>
+            <%= button_to "Vider le Panier", @cart, method: :delete, data: {confirm: "Etes-vous sûr ?"}, class:"btn btn-primary-filled btn-rounded" %>
             <%= link_to items_path, class: "btn btn-default-filled btn-rounded" do %>
             <i class="fa fa-shopping-cart"></i><span>Retour aux petits chats</span>
             <% end %>
             <a href="checkout.html" class="btn btn-primary-filled btn-rounded"><i class="fa fa-refresh"></i> <span>Finaliser ma commande</span></a>
+
         </div><!-- / cart-checkout -->
 
 

@@ -1,5 +1,4 @@
 class OrdersController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :edit, :update, :destroy]
   include CurrentCart
   before_action :set_cart, only: [:new, :create]
   before_action :redirect_if_cart_is_empty, only: :new
@@ -30,11 +29,10 @@ class OrdersController < ApplicationController
   def create
     @order = Order.new(order_params)
     @order.cart = @cart
-
     respond_to do |format|
       if @order.save
         session.delete(:cart_id)
-        format.html { redirect_to root_url, notice: 'Order was successfully created.' }
+        format.html { redirect_to root_path, notice: 'Commande validée.' }
         format.json { render :show, status: :created, location: @order }
       else
         format.html { render :new }
@@ -73,14 +71,13 @@ class OrdersController < ApplicationController
       @order = Order.find(params[:id])
     end
 
+    def redirect_if_cart_is_empty
+        if @cart.line_items.empty?
+          redirect_to root_url, notice: "Votre panier est vide"
+        end
+    end
     # Never trust parameters from the scary internet, only allow the white list through.
     def order_params
-      params.require(:order).permit(:name, :email, :status)
-    end
-
-    def redirect_if_cart_is_empty
-      if @cart.line_items.empty?
-        redirect_to root_url, notice: "Votre panier est vide"
-      end
+      params.require(:order).permit(:name, :email)
     end
 end
