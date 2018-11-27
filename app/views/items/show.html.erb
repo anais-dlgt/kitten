@@ -96,8 +96,9 @@
 
                     <div class="space-25">&nbsp;</div>
 
-                    <a href="shopping-cart.html" class="btn btn-primary-filled btn-rounded"><i class="lnr lnr-cart"></i><span> Add to Cart</span></a>
-                    <a href="checkout.html" class="btn btn-success-filled btn-rounded"><i class="lnr lnr-heart"></i><span> Buy Now</span></a>
+                    <%= button_to line_items_path(item_id: @item.id), class: "btn btn-primary-filled btn-rounded" do %>
+                    <i class="lnr lnr-cart"></i><span>Ajouter au Panier</span>
+                    <% end %>
                 </div>
 
             </div><!-- product-details -->
