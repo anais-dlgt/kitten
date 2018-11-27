@@ -37,4 +37,3 @@
 //= require js/validator.min
 //= require js/nouislider
 //= require js/nouislider.min
-//= require js/map
