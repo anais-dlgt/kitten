@@ -1,12 +1,25 @@
-<p id="notice"><%= notice %></p>
-
 <h2>Panier</h2>
 
 <ul>
   <% @cart.line_items.each do  |item| %>
-    <li> <%= item.item.title %> (x <%=item.quantity%>) </li>
+    <li>
+      <%= item.item.title %> (x <%=item.quantity%>)
+          <span class="badge bagde-info">
+            <%=number_to_currency(item.total, unit: "€", separator: ",", format: "%n %u") %>
+          </span>
+    </li>
   <%end%>
 </ul>
 
+  <p class="font-weight-bold">Total: <span class="badge bagde-info">
+    <%=number_to_currency(@cart.total, unit: "€", separator: ",", format: "%n %u") %>
+  </span></p>
 
-<%= link_to 'Retour au produits', root_path %>
+<div class="row">
+  <div class="column">
+    <%= button_to "Vider le panier", @cart, method: :delete, data: { confirm: "ëtes-vous sûr?"}, class: "btn btn-primary-filled btn-rounded"%>
+  </div>
+  <div class="column">
+    <%= button_to 'Retour aux petits chats', items_path, class: "btn btn-primary-filled btn-rounded" %>
+  </div>
+</div>
