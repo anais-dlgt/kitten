@@ -7,4 +7,7 @@ class HomeController < ApplicationController
 
   def private
   end
+
+  def contact
+  end
 end
