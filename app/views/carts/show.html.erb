@@ -1,28 +1,79 @@
-<h2>Panier</h2>
+<!-- header-banner -->
+<div id="header-banner">
+    <div class="banner-content single-page text-center">
+        <div class="banner-border">
+            <div class="banner-info">
+                <h1>Panier</h1>
+            </div><!-- / banner-info -->
+        </div><!-- / banner-border -->
+    </div><!-- / banner-content -->
 
-<ul>
-  <% @cart.line_items.each do  |item| %>
-    <li>
-      <%= item.item.title %> (x <%=item.quantity%>)
-          <span class="badge bagde-info">
-            <%=number_to_currency(item.total, unit: "€", separator: ",", format: "%n %u") %>
-          </span>
-    </li>
-  <%end%>
-</ul>
-
-  <p class="font-weight-bold">Total: <span class="badge bagde-info">
-    <%=number_to_currency(@cart.total, unit: "€", separator: ",", format: "%n %u") %>
-  </span></p>
-
-<div class="row">
-  <div class="column">
-      <%= button_to "Acheter", new_order_path, method: :get, class: "btn btn-primary-filled btn-rounded"%>
-  </div>
-  <div class="column">
-    <%= button_to "Vider le panier", @cart, method: :delete, data: { confirm: "ëtes-vous sûr?"}, class: "btn btn-primary-filled btn-rounded"%>
-  </div>
-  <div class="column">
-    <%= button_to 'Retour aux petits chats', items_path, class: "btn btn-primary-filled btn-rounded" %>
-  </div>
 </div>
+<!-- / header-banner -->
+</header>
+<!-- / header -->
+
+<!-- content -->
+
+<!-- shopping-cart -->
+<div id="shopping-cart">
+<div class="container">
+    <!-- shopping cart table -->
+    <table class="shopping-cart">
+        <thead>
+            <tr>
+                <th class="image">&nbsp;</th>
+                <th>Produit</th>
+                <th>Prix</th>
+                <th>Quantité</th>
+                <th>Total</th>
+                <th>&nbsp;</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="cart-item">
+                <% @cart.line_items.each do  |item| %>
+                <td class="image"><a href="#"><img src="<%= item.item.image_url %>" alt=""></a></td>
+                <td><%= link_to item_path(item.item.id) do %>
+                  <%= item.item.title %>
+                  <% end %>
+                </td>
+                <td><%= item.item.price %></td>
+                <td class="qty"><input type="number" step="1" min="0" name="cart" value="<%=item.quantity %>" title="Qty" class="input-text qty text" size="4"></td>
+                <td><%=number_to_currency(item.total, unit: "€", separator: ",", format: "%n %u") %></td>
+                <td class="remove"><a href="#x" class="btn btn-danger-filled x-remove">×</a></td>
+
+            </tr>
+        </tbody>
+    </table>
+    <!-- / shopping cart table -->
+
+    <div class="row cart-footer">
+        <div class="coupon col-sm-6">
+
+        </div><!-- / input-group -->
+        <div class="update-cart col-sm-6">
+            <button class="btn btn-default-filled btn-rounded" type="button"><i class="lnr lnr-sync"></i> <span>Update Cart</span></button>
+        </div><!-- / update-cart -->
+
+        <div class="col-sm-6 cart-total">
+            <h4>TOTAL DU PANIER</h4>
+            <p>Sous-total : <span><%=number_to_currency(item.total, unit: "€", separator: ",", format: "%n %u") %></span></p>
+            <p>Frais de livraison : <span>Gratuit</span></p>
+            <p>Total: <span><%=number_to_currency(item.total, unit: "€", separator: ",", format: "%n %u") %></span></p>
+        </div><!-- / cart-total -->
+        <% end %>
+        <div class="col-sm-6 cart-checkout">
+            <%= link_to items_path, class: "btn btn-default-filled btn-rounded" do %>
+            <i class="fa fa-shopping-cart"></i><span>Retour aux petits chats</span>
+            <% end %>
+            <a href="checkout.html" class="btn btn-primary-filled btn-rounded"><i class="fa fa-refresh"></i> <span>Finaliser ma commande</span></a>
+        </div><!-- / cart-checkout -->
+
+
+    </div><!-- / row -->
+</div><!-- / container -->
+</div>
+<!-- / shopping-cart -->
+
+<!-- / content -->
