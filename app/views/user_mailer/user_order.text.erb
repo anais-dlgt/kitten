@@ -1,14 +1,26 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
-  </head>
-  <body>
-    <h1>Félicitations</h1>
-    <p>
-      T'as bien commandé ma gueule
-    <br>
-    </p>
-    <p><%=@cart%></p>
-  </body>
-</html>
+## Bienvenu sur Matouri   😺
+
+Bonjour <%= @user %>,
+Merci de votre commande.
+Voici le ou les produits commandés:
+
+<p>
+<% @cart.line_items.each do |li| %>
+
+<img src="<%= li.item.image_url %>">
+
+<% end %>
+<p>
+
+<p>
+
+Le total de votre commande est: <%= @cart.total %>
+
+</p>
+
+Toute l'équipe de Matouri vous remercie de votre confiance.
+
+A bientôt sur notre site,
+
+
+![](https://matouri.herokuapp.com/assets/logo-8f1833af14cdad42a7b312b6788fc580941ea0ea79a48b1ac18307eec049a6ac.png)
