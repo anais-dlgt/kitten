@@ -10,7 +10,7 @@ class ChargesController < ApplicationController
   def create
     # Amount in cents
     get_cart
-    @amount = @cart.line_items.to_a.sum {|li| li.item.price }.to_f*100
+    @amount = @cart.line_items.to_a.sum {|li| li.item.price }.to_i*100
     customer = Stripe::Customer.create(
       :email => params[:stripeEmail],
       :source  => params[:stripeToken]
