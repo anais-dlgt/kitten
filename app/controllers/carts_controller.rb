@@ -11,6 +11,9 @@ class CartsController < ApplicationController
   # GET /carts/1
   # GET /carts/1.json
   def show
+    if @cart.id == session[:cart_id]
+    else redirect_to root_path, notice: 'Vous ne pouvez pas avoir accès aux paniers des autres utilisateurs.'
+    end
   end
 
   # GET /carts/new
@@ -61,7 +64,7 @@ class CartsController < ApplicationController
     session.delete(:cart_id)
 
     respond_to do |format|
-      format.html { redirect_to @cart, notice: ('Le panier a bien été vidé') }
+      format.html { redirect_to root_path, notice: ('Le panier a bien été vidé') }
       format.json { head :no_content }
     end
   end
