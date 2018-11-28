@@ -1,7 +1,5 @@
 class User < ApplicationRecord
   has_one :cart
-
-  attr_accessor :email
   after_create :send_welcome_email
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
@@ -29,7 +27,7 @@ after_commit :assign_customer_id, on: :create
 private
 
 def send_welcome_email
-  UserMailer.welcome(self).deliver.now
+  UserMailer.welcome_email(self).deliver_now
 end
 
 end
