@@ -16,8 +16,10 @@ ActiveRecord::Schema.define(version: 2018_11_28_121842) do
   enable_extension "plpgsql"
 
   create_table "carts", force: :cascade do |t|
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_carts_on_user_id"
   end
 
   create_table "credit_cards", force: :cascade do |t|
@@ -70,6 +72,7 @@ ActiveRecord::Schema.define(version: 2018_11_28_121842) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "carts", "users"
   add_foreign_key "line_items", "carts"
   add_foreign_key "line_items", "items"
   add_foreign_key "orders", "carts"

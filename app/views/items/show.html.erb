@@ -83,7 +83,7 @@
                 <p>Regardez cette frimousse , elle serait parfaite chez vous.</p>
                 <div class="product-info">
                     <div class="info">
-                      <p><i class="lnr lnr-tag"></i><span>Prix : <%=@item.price %>€</span></p>
+                      <p><i class="fa fa-money"></i><span>Prix : <%=@item.price %>€</span></p>
                     </div>
 
                 </div><!-- / product-info -->
@@ -98,7 +98,7 @@
                     <div class="space-25">&nbsp;</div>
 
                     <%= button_to line_items_path(item_id: @item.id), class: "btn btn-primary-filled btn-rounded" do %>
-                    <i class="lnr lnr-cart"></i><span>Ajouter au Panier</span>
+                    <i class="fa fa-shopping-cart"></i><span>Ajouter au Panier</span>
                     <% end %>
                 </div>
 
