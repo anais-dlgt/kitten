@@ -17,7 +17,7 @@ class OrdersController < ApplicationController
 
   # GET /orders/new
   def new
-    @order = Order.new
+    redirect_to new_charge_path
   end
 
   # GET /orders/1/edit
