@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
-  resources :credit_cards
   resources :orders
   resources :line_items
   resources :carts
   devise_for :users
   resources :items
+  resources :charges
   root to: 'home#index'
   get '/about', to: 'home#about'
   get '/contact', to: 'home#contact'
