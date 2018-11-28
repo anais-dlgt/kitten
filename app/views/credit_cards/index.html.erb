@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Credit Cards</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Digits</th>
+      <th>Month</th>
+      <th>Year</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @credit_cards.each do |credit_card| %>
+      <tr>
+        <td><%= credit_card.digits %></td>
+        <td><%= credit_card.month %></td>
+        <td><%= credit_card.year %></td>
+        <td><%= link_to 'Show', credit_card %></td>
+        <td><%= link_to 'Edit', edit_credit_card_path(credit_card) %></td>
+        <td><%= link_to 'Destroy', credit_card, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Credit Card', new_credit_card_path %>
