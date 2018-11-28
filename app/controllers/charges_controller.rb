@@ -10,7 +10,7 @@ class ChargesController < ApplicationController
   def create
     # Amount in cents
     get_cart
-    @amount = @cart.line_items.to_a.sum {|li| li.item.price }.to_f*100
+    @amount = @cart.line_items.to_a.sum {|li| li.item.price }.to_i*100
     customer = Stripe::Customer.create(
       :email => params[:stripeEmail],
       :source  => params[:stripeToken]
@@ -21,6 +21,10 @@ class ChargesController < ApplicationController
       :description => 'Rails Stripe customer',
       :currency    => 'eur'
     )
+        #Mail de bienvenue envoyé lors de la commande
+     UserMailer.welcome_email(params[:stripeEmail]).deliver_now!
+       #Mail de confirmation de commande avec montant de la commande et les images
+     UserMailer.user_order(params[:stripeEmail], @cart).deliver_now!
 
   rescue Stripe::CardError => e
     flash[:error] = e.message
