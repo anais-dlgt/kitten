@@ -28,7 +28,7 @@
   Si tu veux rentrer dans le vif du sujet, clone le repo : https://matouri.herokuapp.com/
 
 
-```git clone https://github.com/anais-dlgt/jquery.git```
+```$git clone https://github.com/anais-dlgt/jquery.git```
 
  Fais le bundle install :
 
