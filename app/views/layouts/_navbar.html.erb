@@ -33,8 +33,14 @@
                 <% end %>
             <% end %>
           </ul>
-          <%= link_to @cart, class: "shopping-cart" do %>
-            <i class="fa fa-shopping-cart"></i> <span class="cart-badge"><%= @cart.line_items.count %></span>
+          <% if @cart %>
+            <%= link_to @cart, class: "shopping-cart" do %>
+              <i class="fa fa-shopping-cart"></i> <span class="cart-badge"><%= @cart.line_items.count %></span>
+            <% end %>
+          <% else %>
+            <%= link_to @cart, class: "shopping-cart" do %>
+              <i class="fa fa-shopping-cart"></i> <span class="cart-badge">0</span>
+            <% end %>
           <% end %>
         </div>
         <div class="navbar-collapse collapse text-center">
