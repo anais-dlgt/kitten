@@ -2,6 +2,7 @@ class User < ApplicationRecord
   has_one :cart
 
   attr_accessor :email
+  after_create :send_welcome_email
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, length: { maximum: 255 },
@@ -24,4 +25,9 @@ after_commit :assign_customer_id, on: :create
     customer = Stripe::Customer.create(email: email)
     self.customer_id = customer.id
   end
+
+private
+
+def send_welcome_email
+  UserMailer.welcome(self).deliver.now
 end
