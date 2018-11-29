@@ -1,6 +1,6 @@
 class CartsController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :cart_not_found
-  before_action :set_cart, only: [:show, :edit, :update, :destroy]
+
 
   # GET /carts
   # GET /carts.json

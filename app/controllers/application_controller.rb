@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
 
   before_action :configure_devise_parameters, if: :devise_controller?
+  before_action :set_cart
 
   private
 
@@ -11,5 +12,10 @@ class ApplicationController < ActionController::Base
 
       devise_parameter_sanitizer.permit(:sign_in) {|u| u.permit(:username, :email,
         :password, :password_confirmation,:remember_me)}
+  end
+
+  def set_cart
+    @cart = Cart.find_by(id: session[:cart_id]) || Cart.create
+    session[:cart_id] ||= @cart.id
   end
 end
