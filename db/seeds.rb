@@ -18,3 +18,5 @@ array_cat.each do |url|
     Item.create(title: Faker::Cat.unique.name, description: Faker::Cat.unique.breed, price:9.99, image_url: url )
 
 end
+
+User.create(email:'admin@outlook.fr',password: 'Lillethebest', password_confirmation: 'Lillethebest', admin: true)

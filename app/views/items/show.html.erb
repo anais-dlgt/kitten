@@ -100,6 +100,10 @@
                     <%= button_to line_items_path(item_id: @item.id), class: "btn btn-primary-filled btn-rounded" do %>
                     <i class="fa fa-shopping-cart"></i><span>Ajouter au Panier</span>
                     <% end %>
+                    <% if current_user.admin? %>
+                    <%= link_to "Editer l'article", edit_item_path(@item), class: "btn btn-success-filled btn-rounded" %>
+                    <%= link_to "Supprimer l'article", @item, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger-filled btn-rounded"%>
+                    <% end %>
                 </div>
 
             </div><!-- product-details -->
