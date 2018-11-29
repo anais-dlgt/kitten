@@ -7,14 +7,14 @@ Voici le ou les produits commandés:<br/>
 <p>
 <% @cart.line_items.each do |li| %>
 
-<img src="<%= li.item.image_url %>">
+<img src="<%= li.item.image_url %>", width="auto", height="250px">
 
 <% end %>
 <p>
 
 <p>
 
-Le total de votre commande est: <%= @cart.total %>€<br/>
+Le total de votre commande est de : <%= @cart.total %>€<br/>
 
 </p>
 
