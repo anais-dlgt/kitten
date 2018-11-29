@@ -15,12 +15,12 @@
  *= require css/bootstrap.min
  *= require css/style
  *= require css/nouislider
- *= require css/linear-icons
  *= require css/animate
  *= require css/owl.carousel
  *= require css/owl.theme
- *= require css/font-awesome.min
  */
+
+ @import "font-awesome";
 
 #header-banner.demo-1 {
   background: url("chatons.jpg") no-repeat !important;

@@ -1,4 +1,90 @@
-<p id="notice"><%= notice %></p>
+<!-- header-banner -->
+<div id="header-banner">
+    <div class="banner-content single-page text-center">
+        <div class="banner-border">
+            <div class="banner-info">
+                <h1>Panier</h1>
+            </div><!-- / banner-info -->
+        </div><!-- / banner-border -->
+    </div><!-- / banner-content -->
 
-<%= link_to 'Edit', edit_cart_path(@cart) %> |
-<%= link_to 'Back', carts_path %>
+</div>
+<!-- / header-banner -->
+</header>
+<!-- / header -->
+
+<!-- content -->
+
+<!-- shopping-cart -->
+<div id="shopping-cart">
+<div class="container">
+    <!-- shopping cart table -->
+    <table class="shopping-cart">
+        <thead>
+            <tr>
+                <th class="image">&nbsp;</th>
+                <th>Produit</th>
+                <th>Prix</th>
+                <th>Quantité</th>
+                <th>Total</th>
+                <th>&nbsp;</th>
+            </tr>
+        </thead>
+        <tbody>
+          <% @cart.line_items.each do  |item| %>
+            <tr class="cart-item">
+
+                <td class="image"><a href="#"><img src="<%= item.item.image_url %>" alt=""></a></td>
+                <td><%= link_to item_path(item.item.id) do %>
+                  <%= item.item.title %>
+                  <% end %>
+                </td>
+                <td><%= item.item.price %> €</td>
+                <td class="qty"><input type="number" step="1" min="0" name="cart" value="<%=item.quantity %>" title="Qty" class="input-text qty text" size="4"></td>
+                <td><%=number_to_currency(item.total, unit: "€", separator: ",", format: "%n %u") %></td>
+                <td class="remove"><%= link_to line_item_path(item.id), method: :delete, class: "btn btn-danger-filled x-remove" do %>×<% end %></td>
+
+            </tr>
+            <% end %>
+        </tbody>
+    </table>
+    <!-- / shopping cart table -->
+
+    <div class="row cart-footer">
+        <div class="coupon col-sm-6">
+
+        </div><!-- / input-group -->
+        <div class="update-cart col-sm-6">
+              <%= link_to cart_path(@cart), method: :patch, class: "btn btn-default-filled btn-rounded" do %>
+              <i class="fa fa-refresh"></i> <span>Update Cart</span>
+              <% end %>
+            <%= link_to @cart, method: :delete, data: {confirm: "Etes-vous sûr ?"}, class:"btn btn-primary-filled btn-rounded" do %>
+            <i class="fa fa-cart-arrow-down"></i><span>Vider le panier</span>
+            <% end %>
+        </div><!-- / update-cart -->
+
+        <div class="col-sm-6 cart-total">
+            <h4>TOTAL DU PANIER</h4>
+            <p>Sous-total : <span><%= @cart.total %> €</span></p>
+            <p>Frais de livraison : <span>Gratuit</span></p>
+            <p>Total: <span><%= @cart.total %> €</span></p>
+        </div>
+        <!-- / cart-total -->
+
+        <div class="col-sm-6 cart-checkout">
+            <%= link_to items_path, class: "btn btn-default-filled btn-rounded" do %>
+            <i class="fa fa-shopping-cart"></i><span>Retour à la boutique</span>
+            <% end %>
+            <%= link_to new_order_path, method: :get, class: "btn btn-primary-filled btn-rounded" do %>
+            <i class="fa fa-refresh"></i><span>Finaliser ma commande</span>
+            <% end %>
+
+        </div><!-- / cart-checkout -->
+
+
+    </div><!-- / row -->
+</div><!-- / container -->
+</div>
+<!-- / shopping-cart -->
+
+<!-- / content -->

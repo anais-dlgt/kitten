@@ -1,0 +1,88 @@
+<!-- header-banner -->
+<div id="header-banner">
+    <div class="banner-content single-page text-center">
+        <div class="banner-border">
+            <div class="banner-info">
+                <h1>Paiement</h1>
+            </div><!-- / banner-info -->
+        </div><!-- / banner-border -->
+    </div><!-- / banner-content -->
+</div>
+<!-- / header-banner -->
+</header>
+<!-- / header -->
+
+<!-- content -->
+
+<!-- shopping-cart -->
+<div id="checkout">
+  <div class="container">
+    <table class="shopping-cart">
+      </br>
+      <h4 class="text-center">RECAPITULATIF DE LA COMMANDE</h4>
+        <thead>
+            <tr>
+                <th class="image">&nbsp;</th>
+                <th>Produit</th>
+                <th>Prix</th>
+                <th>Quantité</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+        <tbody>
+          <% @cart.line_items.each do  |item| %>
+            <tr class="cart-item">
+
+                <td class="image"><a href="#"><img src="<%= item.item.image_url %>" alt=""></a></td>
+                <td><%= link_to item_path(item.item.id) do %>
+                  <%= item.item.title %>
+                  <% end %>
+                </td>
+                <td><%= item.item.price %> €</td>
+                <td><%=item.quantity %></td>
+                <td><%=number_to_currency(item.total, unit: "€", separator: ",", format: "%n %u") %></td>
+
+            </tr>
+            <% end %>
+        </tbody>
+    </table>
+      <div class="row checkout-screen">
+        <div class="col-sm-2"></div>
+          <div class="col-sm-8 checkout-total text-center">
+            <%= form_tag charges_path do %>
+              <article>
+                <% if flash[:error].present? %>
+                  <div id="error_explanation">
+                    <p><%= flash[:error] %></p>
+                  </div>
+              </article>
+                <% end %>
+              <h4>MONTANT TOTAL: <span><%= @pay %> €</span></h4>
+              <p>*Le prix inclut les frais de livraison et les taxes.</p>
+              <div class="cart-total-footer">
+                  <%= link_to @cart, class: "btn btn-default-filled btn-rounded" do %>
+                  <i class="fa fa-arrow-circle-left"></i><span>Revenir au panier</span>
+                  <% end %>
+                  <%= link_to items_path, class: "btn btn-primary-filled btn-rounded" do %>
+                  <i class="fa fa-shopping-bag"></i><span>Revenir à la boutique</span>
+                  <% end %>
+                  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+                          data-description="Les chats ça coute cher!"
+                          data-currency="eur"
+                          data-amount="<%= @pay*100 %>"
+                          data-locale="auto">
+                          </script>
+                          <script>
+                // Hide default stripe button, be careful there if you
+                // have more than 1 button of that class
+                document.getElementsByClassName("stripe-button-el")[0].style.display = 'none';
+            </script>
+            <button type="submit" class="btn btn-success-filled btn-rounded"><i class="fa fa-money"></i><span>Payer maintenant</span></button>
+                <% end %>
+              </div><!-- / cart-total-footer -->
+          </div><!-- / checkout-total -->
+      </div><!-- / row -->
+  </div><!-- / container -->
+</div>
+<!-- / shopping-cart -->

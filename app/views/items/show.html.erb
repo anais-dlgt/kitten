@@ -1,14 +1,15 @@
-    <!-- header-banner -->
-    <div id="header-banner">
-        <div class="banner-content single-page text-center">
-            <div class="banner-border">
-                <div class="banner-info">
-                    <h1>Votre Photo</h1>
-                </div><!-- / banner-info -->
-            </div><!-- / banner-border -->
-        </div><!-- / banner-content -->
-    </div>
-    <!-- / header-banner -->
+<header>
+<!-- header-banner -->
+<div id="header-banner">
+    <div class="banner-content single-page text-center">
+        <div class="banner-border">
+            <div class="banner-info">
+                <h1>Photo de <%= @item.title %></h1>
+            </div><!-- / banner-info -->
+        </div><!-- / banner-border -->
+    </div><!-- / banner-content -->
+</div>
+<!-- / header-banner -->
 </header>
 <!-- / header -->
 
@@ -16,96 +17,101 @@
 
 <!-- shop single-product -->
 <section id="shop">
-    <div class="container space-top-30">
-        <div class="row">
-            <!-- product content area -->
-            <div class="col-sm-6 col-md-7 product-content-area">
-                <div class="product-content-area">
-                    <div id="product-slider" class="carousel slide" data-ride="carousel">
-                        <!-- wrapper for slides -->
-                        <div class="carousel-inner" role="listbox">
-                            <div class="item active">
-                                <%= image_tag(@item.image_url)  %>
+<div class="container space-top-30">
+    <div class="row">
+        <!-- product content area -->
+        <div class="col-sm-6 col-md-7 product-content-area">
+            <div class="product-content-area">
+                <div id="product-slider" class="carousel slide" data-ride="carousel">
+                    <!-- wrapper for slides -->
+                    <div class="carousel-inner" role="listbox">
+                        <div class="item active">
+                            <%= image_tag(@item.image_url)  %>
+                        </div>
+                    </div>
+                    <!-- / wrapper for slides -->
+                </div><!-- / product-slider -->
+
+                <ul class="nav nav-tabs" role="tablist">
+                    <li class="active"><a href="#description" role="tab" data-toggle="tab" aria-expanded="true">DESCRIPTION</a></li>
+                    <li class=""><a href="#info" role="tab" data-toggle="tab" aria-expanded="false">INFO</a></li>
+                </ul>
+                <!-- / nav-tabs -->
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane animated fadeIn active" id="description">
+                        <p><%= @item.description%></p>
+
+                    </div>
+                    <!-- / description-tab -->
+
+                    <div role="tabpanel" class="tab-pane animated fadeIn" id="info">
+                        <div class="row">
+                            <div class="col-sm-6">
                             </div>
-                        </div>
-                        <!-- / wrapper for slides -->
-                    </div><!-- / product-slider -->
 
-                    <ul class="nav nav-tabs" role="tablist">
-                        <li class="active"><a href="#description" role="tab" data-toggle="tab" aria-expanded="true">DESCRIPTION</a></li>
-                        <li class=""><a href="#info" role="tab" data-toggle="tab" aria-expanded="false">Info</a></li>
-                    </ul>
-                    <!-- / nav-tabs -->
-                    <div class="tab-content">
-                        <div role="tabpanel" class="tab-pane animated fadeIn active" id="description">
-                            <p><%= @item.description%></p>
+                            <div class="col-sm-6">
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <th>Poids:</th>
+                                            <td>0,5 kg</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Imprimée en:</th>
+                                            <td>France</td>
+                                        </tr>
 
-                        </div>
-                        <!-- / description-tab -->
-
-                        <div role="tabpanel" class="tab-pane animated fadeIn" id="info">
-                            <div class="row">
-                                <div class="col-sm-6">
-                                </div>
-
-                                <div class="col-sm-6">
-                                    <table>
-                                        <tbody>
-                                            <tr>
-                                                <th>Poids:</th>
-                                                <td>0.5 Kg</td>
-                                            </tr>
-                                            <tr>
-                                                <th>Made In:</th>
-                                                <td>France</td>
-                                            </tr>
-
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div><!-- / row -->
-                        </div>
-                        <!-- / info-tab -->
-
-
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div><!-- / row -->
                     </div>
-                    <!-- / tab-content -->
-                </div><!-- / product-content-area -->
+                    <!-- / info-tab -->
 
-            </div>
-            <!-- / product-content-area -->
 
-            <!-- product sidebar area -->
-            <div class="col-sm-6 col-md-5 product-sidebar">
-                <div class="product-sidebar-details">
+                </div>
+                <!-- / tab-content -->
+            </div><!-- / product-content-area -->
 
-                    <p>Regardez cette frimousse , elle serait parfaite chez vous.</p>
-                    <div class="product-info">
-                        <div class="info">
-                          <p><i class="lnr lnr-tag"></i><span>Prix : <%=@item.price %>€</span></p>
-                        </div>
+        </div>
+        <!-- / product-content-area -->
 
-                    </div><!-- / product-info -->
+        <!-- product sidebar area -->
+        <div class="col-sm-6 col-md-5 product-sidebar">
+            <div class="product-sidebar-details">
 
-                    <div class="buy-product">
-                        <div class="options">
-                            <input type="number" step="1" min="0" name="cart" value="1" title="Qty" class="input-text qty text" size="4">
-
-                        </div>
-                        <!-- / options -->
-
-                        <div class="space-25">&nbsp;</div>
-
-                        <a href="shopping-cart.html" class="btn btn-primary-filled btn-rounded"><i class="lnr lnr-cart"></i><span> Add to Cart</span></a>
-                        <a href="checkout.html" class="btn btn-success-filled btn-rounded"><i class="lnr lnr-heart"></i><span> Buy Now</span></a>
+                <p>Regardez cette frimousse , elle serait parfaite chez vous.</p>
+                <div class="product-info">
+                    <div class="info">
+                      <p><i class="fa fa-money"></i><span>Prix : <%=@item.price %>€</span></p>
                     </div>
 
-                </div><!-- product-details -->
+                </div><!-- / product-info -->
 
-            </div><!-- / col-sm-4 col-md-3 -->
-            <!-- / product sidebar area -->
+                <div class="buy-product">
+                    <div class="options">
+                        <input type="number" step="1" min="0" name="cart" value="1" title="Qty" class="input-text qty text" size="4">
 
-        </div><!-- / row -->
-    </div><!-- / container -->
+                    </div>
+                    <!-- / options -->
+
+                    <div class="space-25">&nbsp;</div>
+
+                    <%= button_to line_items_path(item_id: @item.id), class: "btn btn-primary-filled btn-rounded" do %>
+                    <i class="fa fa-shopping-cart"></i><span>Ajouter au Panier</span>
+                    <% end %>
+                    <% if current_user.admin? %>
+                    <%= link_to "Editer l'article", edit_item_path(@item), class: "btn btn-success-filled btn-rounded" %>
+                    <%= link_to "Supprimer l'article", @item, method: :delete, data: { confirm: "L'article va être supprimé définitivement, êtes-vous sûr(e) ?" }, class: "btn btn-danger-filled btn-rounded"%>
+                    <% end %>
+                </div>
+
+            </div><!-- product-details -->
+
+        </div><!-- / col-sm-4 col-md-3 -->
+        <!-- / product sidebar area -->
+
+    </div><!-- / row -->
+</div><!-- / container -->
 </section>
 <!-- / shop single-product -->

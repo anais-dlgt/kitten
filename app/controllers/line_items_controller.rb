@@ -1,6 +1,6 @@
 class LineItemsController < ApplicationController
   include CurrentCart
-  before_action :set_cart, only: [:create]
+  before_action :set_cart
   before_action :set_line_item, only: [:show, :edit, :update, :destroy]
 
   # GET /line_items
@@ -27,11 +27,11 @@ class LineItemsController < ApplicationController
   # POST /line_items.json
   def create
     item = Item.find(params[:item_id])
-    @line_item = @cart.line_items.new(item: item)
+    @line_item = @cart.add_item(item)
 
     respond_to do |format|
       if @line_item.save
-        format.html { redirect_to @line_item.cart, notice: 'Line item was successfully created.' }
+        format.html { redirect_to @line_item.cart }
         format.json { render :show, status: :created, location: @line_item }
       else
         format.html { render :new }
@@ -45,7 +45,7 @@ class LineItemsController < ApplicationController
   def update
     respond_to do |format|
       if @line_item.update(line_item_params)
-        format.html { redirect_to @line_item, notice: 'Line item was successfully updated.' }
+        format.html { redirect_to @line_item, notice: 'Line item was successfully updated' }
         format.json { render :show, status: :ok, location: @line_item }
       else
         format.html { render :edit }
@@ -59,7 +59,7 @@ class LineItemsController < ApplicationController
   def destroy
     @line_item.destroy
     respond_to do |format|
-      format.html { redirect_to line_items_url, notice: 'Line item was successfully destroyed.' }
+      format.html { redirect_to cart_path(@cart), notice: "L'article a bien été supprimé" }
       format.json { head :no_content }
     end
   end

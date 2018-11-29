@@ -16,13 +16,13 @@ class ItemsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should get index" do
-    get items_index_url
+  test "should get edit" do
+    get items_edit_url
     assert_response :success
   end
 
-  test "should get edit" do
-    get items_edit_url
+  test "should get index" do
+    get items_index_url
     assert_response :success
   end
 

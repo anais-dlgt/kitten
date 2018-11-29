@@ -30,6 +30,10 @@
 
 //= require js/hide-nav
 //= require js/preloader
+//= require js/jquery.countTo
+//= require js/jquery.easing.min
+//= require js/jquery.shuffle.min
 
 //= require js/validator.min
+//= require js/nouislider
 //= require js/nouislider.min
