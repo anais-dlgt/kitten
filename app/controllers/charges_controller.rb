@@ -21,8 +21,7 @@ class ChargesController < ApplicationController
       :description => 'Rails Stripe customer',
       :currency    => 'eur'
     )
-        #Mail de bienvenue envoyé lors de la commande
-     UserMailer.welcome_email(params[:stripeEmail]).deliver_now!
+  
        #Mail de confirmation de commande avec montant de la commande et les images
      UserMailer.user_order(params[:stripeEmail], @cart).deliver_now!
 

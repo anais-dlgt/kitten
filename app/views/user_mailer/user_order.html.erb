@@ -1,8 +1,8 @@
-## Bienvenu sur Matouri   😺
+Bienvenue sur Matouri! 😺 <br/>
 
-Bonjour <%= @user %>,
-Merci de votre commande.
-Voici le ou les produits commandés:
+Bonjour <%= @user %>,<br/>
+Merci de votre commande.<br/>
+Voici le ou les produits commandés:<br/>
 
 <p>
 <% @cart.line_items.each do |li| %>
@@ -14,13 +14,10 @@ Voici le ou les produits commandés:
 
 <p>
 
-Le total de votre commande est: <%= @cart.total %>
+Le total de votre commande est: <%= @cart.total %>€<br/>
 
 </p>
 
-Toute l'équipe de Matouri vous remercie de votre confiance.
+Toute l'équipe de Matouri vous remercie de votre confiance.<br/>
 
-A bientôt sur notre site,
-
-
-![](https://matouri.herokuapp.com/assets/logo-8f1833af14cdad42a7b312b6788fc580941ea0ea79a48b1ac18307eec049a6ac.png)
+A bientôt sur notre site, 😀<br/>
