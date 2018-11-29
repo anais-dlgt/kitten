@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
   resources :orders
   resources :line_items
-  resources :carts
+  resources :carts, path: :mon_panier
   devise_for :users
-  resources :items
+  resources :items, path: :chatons
   resources :charges
   root to: 'home#index'
   get '/a-propos-de-nous', to: 'home#about', :as => :about

@@ -76,6 +76,7 @@ class CartsController < ApplicationController
   end
     # Use callbacks to share common setup or constraints between actions.
     def set_cart
+      puts "set_cart"
       @cart = Cart.find(params[:id])
     end
 

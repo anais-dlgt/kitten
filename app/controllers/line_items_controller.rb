@@ -1,6 +1,5 @@
 class LineItemsController < ApplicationController
-  include CurrentCart
-  before_action :set_cart
+
   before_action :set_line_item, only: [:show, :edit, :update, :destroy]
 
   # GET /line_items
@@ -44,8 +43,11 @@ class LineItemsController < ApplicationController
   # PATCH/PUT /line_items/1.json
   def update
     respond_to do |format|
+      puts "update"
+      puts @line_item
+      puts params
       if @line_item.update(line_item_params)
-        format.html { redirect_to @line_item, notice: 'Line item was successfully updated' }
+        format.html { redirect_to @cart, notice: 'Le produit a bien été modifié.' }
         format.json { render :show, status: :ok, location: @line_item }
       else
         format.html { render :edit }

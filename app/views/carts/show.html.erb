@@ -28,6 +28,7 @@
                 <th>Quantité</th>
                 <th>Total</th>
                 <th>&nbsp;</th>
+
             </tr>
         </thead>
         <tbody>
@@ -40,9 +41,12 @@
                   <% end %>
                 </td>
                 <td><%= item.item.price %> €</td>
-                <td class="qty"><input type="number" step="1" min="0" name="cart" value="<%=item.quantity %>" title="Qty" class="input-text qty text" size="4"></td>
-                <td><%=number_to_currency(item.total, unit: "€", separator: ",", format: "%n %u") %></td>
-                <td class="remove"><%= link_to line_item_path(item.id), method: :delete, class: "btn btn-danger-filled x-remove" do %>×<% end %></td>
+                <%= form_for(item, url: {controller: :line_items, action: :update, id: item.id}, method: :patch) do |f| %>
+                <td class="qty"><%= f.number_field :quantity, id: "input-slider-value", class: "range-slider-value"%></td>
+                <td><%=number_to_currency(item.item.price * item.quantity, unit: "€", separator: ",", format: "%n %u") %></td>
+                <td class="text-center"><%= f.submit "Update", class: "btn btn-success-filled btn-rounded" do %><i class="fa fa-refresh"></i><% end %>
+                <% end %>
+                <%= link_to line_item_path(item.id), method: :delete, class: "btn btn-danger-filled btn-rounded" do %>Supprimer<% end %></td>
 
             </tr>
             <% end %>
@@ -55,9 +59,6 @@
 
         </div><!-- / input-group -->
         <div class="update-cart col-sm-6">
-              <%= link_to cart_path(@cart), method: :patch, class: "btn btn-default-filled btn-rounded" do %>
-              <i class="fa fa-refresh"></i> <span>Update Cart</span>
-              <% end %>
             <%= link_to @cart, method: :delete, data: {confirm: "Etes-vous sûr ?"}, class:"btn btn-primary-filled btn-rounded" do %>
             <i class="fa fa-cart-arrow-down"></i><span>Vider le panier</span>
             <% end %>

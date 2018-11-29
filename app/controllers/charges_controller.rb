@@ -1,7 +1,6 @@
 class ChargesController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit, :update, :destroy]
-  include CurrentCart
-  before_action :set_cart, only: [:new, :create]
+
   def new
     get_cart
     @total = @cart.total
@@ -21,7 +20,7 @@ class ChargesController < ApplicationController
       :description => 'Rails Stripe customer',
       :currency    => 'eur'
     )
-  
+
        #Mail de confirmation de commande avec montant de la commande et les images
      UserMailer.user_order(params[:stripeEmail], @cart).deliver_now!
 
