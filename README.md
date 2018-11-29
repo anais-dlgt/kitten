@@ -9,7 +9,7 @@ Dans ce projet, nous devions créer un site de boutique en ligne de photos de ch
 * Ils peuvent remplir leur panier et payer la ou les photo(s) avec Stripe.
 * Ils peuvent acheter plusieurs exemplaires du même produit dans une même commande.
 * Ils reçoivent par email le récapitulatif de leur commande avec la photo du ou des produit(s) (avec Mailjet).
-* Nous avons plugger ActiveStorage afin qu'un utilisateur puisse charger une photo de profil par exemple.
+* Nous avons plugger ActiveStorage au site.
 
 ## 💾  Quelques features supplémentaires 💾
 
