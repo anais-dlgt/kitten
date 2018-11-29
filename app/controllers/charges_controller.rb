@@ -21,9 +21,11 @@ class ChargesController < ApplicationController
       :description => 'Rails Stripe customer',
       :currency    => 'eur'
     )
-      
+  
        #Mail de confirmation de commande avec montant de la commande et les images
      UserMailer.user_order(params[:stripeEmail], @cart).deliver_now!
+
+     UserMailer.admin_order(@amount).deliver_now!
 
   rescue Stripe::CardError => e
     flash[:error] = e.message
