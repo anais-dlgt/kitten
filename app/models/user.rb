@@ -25,10 +25,6 @@ after_commit :assign_customer_id, on: :create
 
 private
 
-def send_welcome_email
-  UserMailer.welcome_email(self).deliver_now
-end
-
 def post_params
   params.require(:user).permit(:avatar)
 end

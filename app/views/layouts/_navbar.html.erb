@@ -14,9 +14,11 @@
             <%end%>
         </div><!-- / navbar-header -->
         <div class="secondary-nav">
-          <% if current_user.admin? %>
-          <a>
-          <span class="text-danger">Mode Admin&nbsp;&nbsp;&nbsp;</span></a>
+          <% if current_user %>
+            <% if current_user.admin? %>
+            <a>
+            <span class="text-danger">Mode Admin&nbsp;&nbsp;&nbsp;</span></a>
+            <% end %>
           <% end %>
           <a href="#" class="dropdown-toggle my-account space-right fa fa-user" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"></a>
           <ul class="dropdown-menu animated zoomIn fast">
