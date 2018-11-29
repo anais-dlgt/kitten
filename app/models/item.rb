@@ -11,5 +11,4 @@ class Item < ApplicationRecord
     (price*100).to_i
   end
 
-  @item.attach(params[:picture])
 end
