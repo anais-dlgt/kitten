@@ -1,10 +1,10 @@
-#:chat_avec_yeux_en_cœur:MATOURI PROJECT:chat_avec_yeux_en_cœur:
+# 😻MATOURI PROJECT😻
 
 
  Dans ce projet, nous devions créer un site de boutique en ligne de  photos de chats.
  Nous  devions utiliser Trello et la méthodologie Agile, en utilisant le principe des Users stories.
 
- ##:marteau_et_clé_anglaise:Le site comprend plusieurs fonctionnalités::marteau_et_clé_anglaise:
+ ## 🛠️Le site comprend plusieurs fonctionnalités:🛠️
 
   * Afficher les différents produits.
   * Les clients peuvent s’inscrire et se loger  sur le site, via devise
@@ -14,15 +14,15 @@
   * Plugger ActiveStorage, et le faire marcher en production.
 
 
- ## :disquette: Quelques features supplémentaires ( si on a le temps): :disquette:
+ ## 💾 Quelques features supplémentaires ( si on a le temps):💾
 
-  * Création  d’un model admin qui peut se loger et qui va  aussi recevoir un email avec le récapitulatif de la commande qui vient d’être passée.
+  * Création  d’un model admin qui peut se loger et qui va  aussi recevoir un email avec le récapitulatif de la commande qui vient d’être     passée.
   * Ajout aussi d’un dashboard admin qui fait l’état des lieux des commandes effectuées
   * Ajout d’un type de user “admin”, qui peut créer et modifier des produits
   * Possibilité pour un visiteur du site d’avoir un panier de commande
   * Ajout d’un système de catégorisation des produits
 
- ## :tada:  Rendu final  :tada:
+ ## 🌟 Rendu final 🌟
 
   Tu peux retrouver notre application final via  :index_vers_la_droite:
   Si tu veux rentrer dans le vif du sujet, clone le repo : https://matouri.herokuapp.com/
@@ -40,6 +40,6 @@
 `$rails db:migrate`
 `$rails db:seed`
 
- ## :bières:  L’équipe  :bières:
+ ## 🍻 L’équipe  🍻
 
- Ce projet a été réalisé par une partie de la team Welsh (Lille rpz) avec Virginie Valeur Hannebicque, Anaïs Diologeant, Mustapha Ait Ouayhou et Thomas Perus.
+ Ce projet a été réalisé par une partie de la team Welsh (Lille rpz) avec Virginie Valeur Hannebicque, Anaïs Diologeant, Mustapha Ait     Ouayhou et Thomas Perus.
