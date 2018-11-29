@@ -1,6 +1,6 @@
 class Item < ApplicationRecord
-  has_one_attached :picture
   has_many :line_items, dependent: :nullify
+
 
   validates :title, presence: true
   validates :description, presence: true
@@ -10,5 +10,6 @@ class Item < ApplicationRecord
   def price_in_cents
     (price*100).to_i
   end
+
 
 end

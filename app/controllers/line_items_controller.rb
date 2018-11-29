@@ -43,9 +43,6 @@ class LineItemsController < ApplicationController
   # PATCH/PUT /line_items/1.json
   def update
     respond_to do |format|
-      puts "update"
-      puts @line_item
-      puts params
       if @line_item.update(line_item_params)
         format.html { redirect_to @cart, notice: 'Le produit a bien été modifié.' }
         format.json { render :show, status: :ok, location: @line_item }
