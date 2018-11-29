@@ -1,10 +1,10 @@
-#😻ATOURI PROJECT😻
+# 😻MATOURI PROJECT😻
 
 
  Dans ce projet, nous devions créer un site de boutique en ligne de  photos de chats.
  Nous  devions utiliser Trello et la méthodologie Agile, en utilisant le principe des Users stories.
 
- ##🛠️Le site comprend plusieurs fonctionnalités:🛠️
+ ## 🛠️Le site comprend plusieurs fonctionnalités:🛠️
 
   * Afficher les différents produits.
   * Les clients peuvent s’inscrire et se loger  sur le site, via devise
