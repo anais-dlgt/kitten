@@ -1,4 +1,4 @@
-# 😻MATOURI PROJECT😻
+# 😻 MATOURI PROJECT 😻
 
 Dans ce projet, nous devions créer un site de boutique en ligne de photos de chatons. Nous devions utiliser Trello et la méthode Agile, en utilisant le principe des Users stories.
 
@@ -47,8 +47,8 @@ Pour rentrer dans le vif du sujet, merci de suivre les indications ci-dessous :
 
 `$bundle install`
 
-`$rails db:create`
-`$rails db:migrate`
+`$rails db:create`<br/>
+`$rails db:migrate`<br/>
 `$rails db:seed`
 
  ## 🍻 L’équipe  🍻

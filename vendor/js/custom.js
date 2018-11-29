@@ -19,8 +19,6 @@ var shuffleme = (function( $ ) {
     });
   },
 
-
-
   // Set up button clicks
   setupFilters = function() {
     var $btns = $filterOptions.children();
