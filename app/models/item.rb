@@ -1,6 +1,6 @@
 class Item < ApplicationRecord
-  has_one_attached :picture
   has_many :line_items, dependent: :nullify
+
 
   validates :title, presence: true
   validates :description, presence: true
@@ -11,5 +11,5 @@ class Item < ApplicationRecord
     (price*100).to_i
   end
 
-  @item.attach(params[:picture])
+
 end

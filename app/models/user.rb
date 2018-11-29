@@ -1,7 +1,5 @@
 class User < ApplicationRecord
   has_one :cart
-  has_one_attached :avatar
-  after_create :send_welcome_email
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, length: { maximum: 255 },
